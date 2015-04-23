@@ -38,7 +38,7 @@ openerp.base_geoengine = function(openerp) {
      * Parameters:
      * a - {Object}
      */
-    var formatHTML = function(a) {
+    openerp.base_geoengine.formatHTML = function(a) {
         var str = [];
         var oid = '';
         for (var key in a) {
@@ -231,7 +231,7 @@ openerp.base_geoengine = function(openerp) {
                 },
                 eventListeners: {
                     "featureselected": function(event) {
-                        $("#map_info").html(formatHTML(event.feature.attributes));
+                        $("#map_info").html(openerp.base_geoengine.formatHTML(event.feature.attributes));
                         $("#map_infobox").show();
                     },
                     "featureunselected": function() {
