@@ -1,5 +1,5 @@
 <template>
-    <div t-name="GeoengineView" t-att-id="elem_id" style="height:500px;position:relative;">
+    <div t-name="GeoengineView" t-att-id="elem_id" class='geoengine_view'>
          <br />
         <div id="the_map"></div>
         <div id="map_infobox" class="map_overlay">
