@@ -4,7 +4,8 @@
 Geospatial support for base_geolocalize
 =======================================
 
-Geolocalise your partner based on longitude and latitude provided by base_geolocalize.
+Geolocalise your partner based on longitude and latitude provided by `Open
+MapQuest API <http://open.mapquestapi.com/>`_.
 
 
 Installation
@@ -12,6 +13,19 @@ Installation
 
 Take a look at the installation section in the description of the module 
 'base_geoengine'.
+
+The module also requires one additional python libs:
+
+* `requests <https://pypi.python.org/pypi/requests>`_
+
+Configuration
+=============
+
+In order to use the `Open MapQuest API <http://open.mapquestapi.com/>`_ you
+must be registered for services at at the `MapQuest Developer Network
+<http://developer.mapquest.com/>`_ site. The key you you received when you
+registered must be specify in the System Parameters under the key
+'geoengine_maquestapi_key'.
 
 Bug Tracker
 ===========
