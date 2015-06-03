@@ -98,7 +98,7 @@ class TestGeoengine(common.TransactionCase):
             {'name': 'test dummy',
              'the_geom': wktloads(MULTIPOLYGON_1)})
 
-        self.registry('ir.ui.view').create(
+        self.dummy_related_id = self.registry('ir.ui.view').create(
             self.cr, 1, {
                 'model':  self.test_model_related._name,
                 'name': 'test.dummy.related.geo_view',
@@ -180,6 +180,15 @@ class TestGeoengine(common.TransactionCase):
                  'geo_lesser',
                  Polygon([(3, 0), (4, 1), (4, 0)]))])
         self.assertListEqual([], ids)
+
+        # search on a non stored related geo field
+        ids = self.test_model_related.geo_search(
+            cr, uid, domain=[],
+            geo_domain=[
+                ('the_geom_related',
+                 'geo_greater',
+                 Polygon([(3, 0), (4, 1), (4, 0)]))])
+        self.assertListEqual([self.dummy_related_id], ids)
 
     def test_get_edit_info_for_geo_column(self):
         cr, uid = self.cr, SUPERUSER_ID
