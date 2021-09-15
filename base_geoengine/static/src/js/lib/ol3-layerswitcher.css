@@ -1,3 +1,11 @@
+.layer-switcher.shown.ol-control {
+    background-color: transparent;
+}
+
+.layer-switcher.shown.ol-control:hover {
+    background-color: transparent;
+}
+
 .layer-switcher {
     position: absolute;
     top: 3.5em;
@@ -5,12 +13,19 @@
     text-align: left;
 }
 
+.layer-switcher.shown {
+    bottom: 3em;
+}
+
 .layer-switcher .panel {
-    padding-right: 50px;
-    border: 1px solid #cccccc;
-    background-color: white;
+    padding: 0 1em 0 0;
     margin: 0;
+    border: 4px solid #eee;
+    border-radius: 4px;
+    background-color: white;
     display: none;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .layer-switcher.shown .panel {
@@ -28,23 +43,89 @@
     border: none;
 }
 
+.layer-switcher.shown button {
+    display: none;
+}
+
+.layer-switcher.shown.activationModeClick > button {
+    display: block;
+    background-image: unset;
+    color: black;
+    right: 2px;
+    position: absolute;
+}
+
 .layer-switcher button:focus, .layer-switcher button:hover {
     background-color: white;
 }
 
 .layer-switcher ul {
-    padding-left: 1em;
+    padding-left: 2em;
     list-style: none;
-}
-
-.layer-switcher li.group {
-    padding-top: 5px;
 }
 
 .layer-switcher li.group > label {
     font-weight: bold;
 }
 
+.layer-switcher li.layer {
+    display: table;
+}
+
+.layer-switcher li.layer label, .layer-switcher li.layer input {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.layer-switcher label.disabled {
+    opacity:0.4;
+}
+
 .layer-switcher input {
     margin: 4px;
+}
+
+.layer-switcher.touch ::-webkit-scrollbar {
+    width: 4px;
+}
+
+.layer-switcher.touch ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.layer-switcher.touch ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.layer-switcher .group button {
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    width: 16px;
+    height: 16px;
+    background-position: center 2px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVR4nGNgGAWMyBwXFxcGBgaGeii3EU0tXHzPnj1wQRYsihqQ+I0ExDEMQAYNONgoAN0AmMkNaDSyQSheY8JiaCMOGzE04zIAmyFYNTMw4A+DRhzsUUBtAADw4BCeIZkGdwAAAABJRU5ErkJggg==');
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    -ms-transition: -ms-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+}
+
+.layer-switcher .group.layer-switcher-close button {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+li.group.layer-switcher-fold {
+    margin-left: -18px;
+}
+
+.layer-switcher .group.layer-switcher-fold > ul {
+    padding-left: 3em;
+}
+
+.layer-switcher .group.layer-switcher-fold.layer-switcher-close > ul {
+    overflow: hidden;
+    height: 0;
 }

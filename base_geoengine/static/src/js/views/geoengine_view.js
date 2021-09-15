@@ -845,6 +845,7 @@ var GeoengineView = View.extend(geoengine_common.GeoengineMixin, {
              ol.control.LayerSwitcher.renderPanel(map, toc);
             map.addControl(sidebar);*/
             var layerSwitcher = new ol.control.LayerSwitcher({});
+            layerSwitcher.on("rendercomplete", function(e){ console.debug("ici")});
             map.addControl(layerSwitcher);
             self.map = map;
             self.register_interaction();
